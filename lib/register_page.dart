@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class LoginPage extends StatelessWidget {
-  const LoginPage({super.key});
+class RegisterPage extends StatelessWidget {
+  const RegisterPage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -16,7 +16,19 @@ class LoginPage extends StatelessWidget {
             height: h * 0.3,
             decoration: const BoxDecoration(
                 image: DecorationImage(
-                    image: AssetImage('img/loginimg.png'), fit: BoxFit.cover)),
+                    image: AssetImage('img/signup.png'), fit: BoxFit.cover)),
+            child: Column(
+              children: [
+                SizedBox(
+                  height: h * 0.15,
+                ),
+                const CircleAvatar(
+                  backgroundColor: Colors.white70,
+                  radius: 50,
+                  backgroundImage: AssetImage('img/profile1.png'),
+                )
+              ],
+            ),
           ),
           Container(
             margin: const EdgeInsets.only(left: 20, right: 20),
@@ -24,14 +36,6 @@ class LoginPage extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                const Text(
-                  '¡Hola!',
-                  style: TextStyle(fontSize: 50, fontWeight: FontWeight.bold),
-                ),
-                const Text(
-                  'Inicia sesión en tu cuenta',
-                  style: TextStyle(fontSize: 20, color: Colors.grey),
-                ),
                 const SizedBox(
                   height: 50,
                 ),
@@ -48,9 +52,75 @@ class LoginPage extends StatelessWidget {
                       ]),
                   child: TextField(
                     decoration: InputDecoration(
+                        hintText: 'Nombre',
+                        prefixIcon: const Icon(
+                          Icons.create_outlined,
+                          color: Colors.deepOrangeAccent,
+                        ),
+                        focusedBorder: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(30),
+                            borderSide: const BorderSide(
+                                color: Colors.white, width: 1.0)),
+                        enabledBorder: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(30),
+                            borderSide: const BorderSide(
+                                color: Colors.white, width: 1.0)),
+                        border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(30))),
+                  ),
+                ),
+                const SizedBox(
+                  height: 20,
+                ),
+                Container(
+                  decoration: BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: BorderRadius.circular(30),
+                      boxShadow: [
+                        BoxShadow(
+                            blurRadius: 10,
+                            spreadRadius: 7,
+                            offset: const Offset(1, 1),
+                            color: Colors.grey.withOpacity(0.2))
+                      ]),
+                  child: TextField(
+                    decoration: InputDecoration(
+                        hintText: 'Apellidos',
+                        prefixIcon: const Icon(
+                          Icons.create_outlined,
+                          color: Colors.deepOrangeAccent,
+                        ),
+                        focusedBorder: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(30),
+                            borderSide: const BorderSide(
+                                color: Colors.white, width: 1.0)),
+                        enabledBorder: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(30),
+                            borderSide: const BorderSide(
+                                color: Colors.white, width: 1.0)),
+                        border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(30))),
+                  ),
+                ),
+                const SizedBox(
+                  height: 20,
+                ),
+                Container(
+                  decoration: BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: BorderRadius.circular(30),
+                      boxShadow: [
+                        BoxShadow(
+                            blurRadius: 10,
+                            spreadRadius: 7,
+                            offset: const Offset(1, 1),
+                            color: Colors.grey.withOpacity(0.2))
+                      ]),
+                  child: TextField(
+                    decoration: InputDecoration(
                         hintText: 'E-mail',
                         prefixIcon: const Icon(
-                          Icons.mail_outlined,
+                          Icons.email_outlined,
                           color: Colors.deepOrangeAccent,
                         ),
                         focusedBorder: OutlineInputBorder(
@@ -101,7 +171,7 @@ class LoginPage extends StatelessWidget {
                 const SizedBox(
                   height: 20,
                 ),
-                Row(
+                /*Row(
                   children: [
                     Expanded(
                       child: Container(),
@@ -112,6 +182,7 @@ class LoginPage extends StatelessWidget {
                     ),
                   ],
                 ),
+              */
               ],
             ),
           ),
@@ -127,9 +198,9 @@ class LoginPage extends StatelessWidget {
                     image: AssetImage('img/loginbtn.png'), fit: BoxFit.cover)),
             child: const Center(
               child: Text(
-                'Log in',
+                'Inscribirse',
                 style: TextStyle(
-                    fontSize: 30,
+                    fontSize: 27,
                     fontWeight: FontWeight.bold,
                     color: Colors.white),
               ),
@@ -140,11 +211,11 @@ class LoginPage extends StatelessWidget {
           ),
           RichText(
               text: TextSpan(
-                  text: '¿Aún no tienes una cuenta?',
+                  text: '¿Ya tienes una cuenta?',
                   style: TextStyle(color: Colors.grey[500], fontSize: 16),
                   children: const [
                 TextSpan(
-                    text: ' Crear',
+                    text: ' Iniciar sesión',
                     style: TextStyle(
                       color: Colors.black54,
                       fontWeight: FontWeight.bold,
