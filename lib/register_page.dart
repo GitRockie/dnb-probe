@@ -1,4 +1,7 @@
+import 'package:auth_app_flutter/login_page.dart';
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class RegisterPage extends StatelessWidget {
   const RegisterPage({super.key});
@@ -37,7 +40,7 @@ class RegisterPage extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 const SizedBox(
-                  height: 50,
+                  height: 40,
                 ),
                 Container(
                   decoration: BoxDecoration(
@@ -187,7 +190,7 @@ class RegisterPage extends StatelessWidget {
             ),
           ),
           const SizedBox(
-            height: 40,
+            height: 30,
           ),
           Container(
             width: w * 0.5,
@@ -206,22 +209,24 @@ class RegisterPage extends StatelessWidget {
               ),
             ),
           ),
-          SizedBox(
-            height: w * 0.04,
+          const SizedBox(
+            height: 5,
           ),
           RichText(
               text: TextSpan(
                   text: '¿Ya tienes una cuenta?',
                   style: TextStyle(color: Colors.grey[500], fontSize: 16),
-                  children: const [
+                  children: [
                 TextSpan(
                     text: ' Iniciar sesión',
-                    style: TextStyle(
+                    style: const TextStyle(
                       color: Colors.black54,
                       fontWeight: FontWeight.bold,
                       fontSize: 16,
-                    ))
-              ]))
+                    ),
+                    recognizer: TapGestureRecognizer()
+                      ..onTap = () => Get.to(() => const LoginPage()))
+              ])),
         ]),
       ),
     );

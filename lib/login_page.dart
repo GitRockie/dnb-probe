@@ -1,4 +1,7 @@
+import 'package:auth_app_flutter/register_page.dart';
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class LoginPage extends StatelessWidget {
   const LoginPage({super.key});
@@ -24,13 +27,16 @@ class LoginPage extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
+                const SizedBox(
+                  height: 20,
+                ),
                 const Text(
                   '¡Hola!',
-                  style: TextStyle(fontSize: 50, fontWeight: FontWeight.bold),
+                  style: TextStyle(fontSize: 40, fontWeight: FontWeight.bold),
                 ),
                 const Text(
                   'Inicia sesión en tu cuenta',
-                  style: TextStyle(fontSize: 20, color: Colors.grey),
+                  style: TextStyle(fontSize: 18, color: Colors.grey),
                 ),
                 const SizedBox(
                   height: 50,
@@ -108,7 +114,7 @@ class LoginPage extends StatelessWidget {
                     ),
                     const Text(
                       '¿Olvidaste tu contraseña?',
-                      style: TextStyle(fontSize: 20, color: Colors.grey),
+                      style: TextStyle(fontSize: 18, color: Colors.grey),
                     ),
                   ],
                 ),
@@ -127,9 +133,9 @@ class LoginPage extends StatelessWidget {
                     image: AssetImage('img/loginbtn.png'), fit: BoxFit.cover)),
             child: const Center(
               child: Text(
-                'Log in',
+                'Iniciar',
                 style: TextStyle(
-                    fontSize: 30,
+                    fontSize: 28,
                     fontWeight: FontWeight.bold,
                     color: Colors.white),
               ),
@@ -142,14 +148,16 @@ class LoginPage extends StatelessWidget {
               text: TextSpan(
                   text: '¿Aún no tienes una cuenta?',
                   style: TextStyle(color: Colors.grey[500], fontSize: 16),
-                  children: const [
+                  children: [
                 TextSpan(
                     text: ' Crear',
-                    style: TextStyle(
+                    style: const TextStyle(
                       color: Colors.black54,
                       fontWeight: FontWeight.bold,
                       fontSize: 16,
-                    ))
+                    ),
+                    recognizer: TapGestureRecognizer()
+                      ..onTap = () => Get.to(() => const RegisterPage()))
               ]))
         ]),
       ),
