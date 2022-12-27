@@ -1,3 +1,4 @@
+import 'package:auth_app_flutter/auth_controller.dart';
 import 'package:auth_app_flutter/login_page.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
@@ -8,6 +9,11 @@ class RegisterPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var nameController = TextEditingController();
+    var surnameController = TextEditingController();
+    var emailController = TextEditingController();
+    var passwordController = TextEditingController();
+
     double w = MediaQuery.of(context).size.width;
     double h = MediaQuery.of(context).size.height;
     return Scaffold(
@@ -54,6 +60,7 @@ class RegisterPage extends StatelessWidget {
                             color: Colors.grey.withOpacity(0.2))
                       ]),
                   child: TextField(
+                    controller: nameController,
                     decoration: InputDecoration(
                         hintText: 'Nombre',
                         prefixIcon: const Icon(
@@ -87,6 +94,7 @@ class RegisterPage extends StatelessWidget {
                             color: Colors.grey.withOpacity(0.2))
                       ]),
                   child: TextField(
+                    controller: surnameController,
                     decoration: InputDecoration(
                         hintText: 'Apellidos',
                         prefixIcon: const Icon(
@@ -120,6 +128,7 @@ class RegisterPage extends StatelessWidget {
                             color: Colors.grey.withOpacity(0.2))
                       ]),
                   child: TextField(
+                    controller: emailController,
                     decoration: InputDecoration(
                         hintText: 'E-mail',
                         prefixIcon: const Icon(
@@ -153,6 +162,8 @@ class RegisterPage extends StatelessWidget {
                             color: Colors.grey.withOpacity(0.2))
                       ]),
                   child: TextField(
+                    controller: passwordController,
+                    obscureText: true,
                     decoration: InputDecoration(
                         hintText: 'Contraseña',
                         prefixIcon: const Icon(
@@ -192,20 +203,30 @@ class RegisterPage extends StatelessWidget {
           const SizedBox(
             height: 30,
           ),
-          Container(
-            width: w * 0.5,
-            height: h * 0.08,
-            decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(30),
-                image: const DecorationImage(
-                    image: AssetImage('img/loginbtn.png'), fit: BoxFit.cover)),
-            child: const Center(
-              child: Text(
-                'Inscribirse',
-                style: TextStyle(
-                    fontSize: 27,
-                    fontWeight: FontWeight.bold,
-                    color: Colors.white),
+          GestureDetector(
+            onTap: () {
+              AuthController.instance.register(
+                  nameController.text.trim(),
+                  surnameController.text.trim(),
+                  emailController.text.trim(),
+                  passwordController.text.trim());
+            },
+            child: Container(
+              width: w * 0.5,
+              height: h * 0.08,
+              decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(30),
+                  image: const DecorationImage(
+                      image: AssetImage('img/loginbtn.png'),
+                      fit: BoxFit.cover)),
+              child: const Center(
+                child: Text(
+                  'Inscribirse',
+                  style: TextStyle(
+                      fontSize: 27,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.white),
+                ),
               ),
             ),
           ),

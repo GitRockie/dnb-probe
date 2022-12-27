@@ -1,5 +1,3 @@
-import 'dart:ui';
-
 import 'package:auth_app_flutter/home_page.dart';
 import 'package:auth_app_flutter/login_page.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -26,7 +24,7 @@ class AuthController extends GetxController {
 
   _initialScreen(User? user) {
     if (user == null) {
-      print('login page redirected');
+      //print('login page redirected');
       Get.offAll(() => const LoginPage());
     } else {
       Get.offAll(() => const HomePage());
@@ -34,9 +32,10 @@ class AuthController extends GetxController {
   }
 
   //Register function create
-  void register(String email, password) {
+  Future<void> register(String name, surname, email, password) async {
     try {
-      auth.createUserWithEmailAndPassword(email: email, password: password);
+      await auth.createUserWithEmailAndPassword(
+          email: email, password: password);
     } catch (e) {
       Get.snackbar('About User', 'User message',
           backgroundColor: Colors.redAccent,
