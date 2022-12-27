@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "91168695103",
+    "project_id": "fir-getx-dnb-app",
+    "storage_bucket": "fir-getx-dnb-app.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:91168695103:android:e42697c33500ac359e698a",
+        "android_client_info": {
+          "package_name": "com.example.auth_app_flutter"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "91168695103-qv6430ihr5c8dnc278vdjaug0b4hl42m.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDX2f0m5ik9dmIqhmPUlh24aMH1uG1BzKU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "91168695103-qv6430ihr5c8dnc278vdjaug0b4hl42m.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
