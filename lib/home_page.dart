@@ -54,7 +54,47 @@ class HomePage extends StatelessWidget {
             ),
           ),
           const SizedBox(
-            height: 200,
+            height: 100,
+          ),
+          Container(
+            width: w * 0.5,
+            height: h * 0.08,
+            decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(30),
+                image: const DecorationImage(
+                    image: AssetImage('img/loginbtn.png'), fit: BoxFit.cover)),
+            child: const Center(
+              child: Text(
+                'Subir archivo',
+                style: TextStyle(
+                    fontSize: 24,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.white),
+              ),
+            ),
+          ),
+          SizedBox(
+            height: w * 0.08,
+          ),
+          Container(
+            width: w * 0.5,
+            height: h * 0.08,
+            decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(30),
+                image: const DecorationImage(
+                    image: AssetImage('img/loginbtn.png'), fit: BoxFit.cover)),
+            child: const Center(
+              child: Text(
+                'Graficar',
+                style: TextStyle(
+                    fontSize: 24,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.white),
+              ),
+            ),
+          ),
+          SizedBox(
+            height: w * 0.08,
           ),
           Container(
             width: w * 0.5,
