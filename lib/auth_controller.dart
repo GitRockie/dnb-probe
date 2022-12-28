@@ -32,7 +32,7 @@ class AuthController extends GetxController {
   }
 
   //Register function create
-  Future<void> register(String name, surname, email, password) async {
+  void register(String email, password) async {
     try {
       await auth.createUserWithEmailAndPassword(
           email: email, password: password);

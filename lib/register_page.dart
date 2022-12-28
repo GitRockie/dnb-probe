@@ -9,8 +9,8 @@ class RegisterPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var nameController = TextEditingController();
-    var surnameController = TextEditingController();
+    //var nameController = TextEditingController();
+    //var surnameController = TextEditingController();
     var emailController = TextEditingController();
     var passwordController = TextEditingController();
 
@@ -48,7 +48,7 @@ class RegisterPage extends StatelessWidget {
                 const SizedBox(
                   height: 40,
                 ),
-                Container(
+                /* Container(
                   decoration: BoxDecoration(
                       color: Colors.white,
                       borderRadius: BorderRadius.circular(30),
@@ -112,7 +112,7 @@ class RegisterPage extends StatelessWidget {
                         border: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(30))),
                   ),
-                ),
+                ),*/
                 const SizedBox(
                   height: 20,
                 ),
@@ -129,6 +129,7 @@ class RegisterPage extends StatelessWidget {
                       ]),
                   child: TextField(
                     controller: emailController,
+                    keyboardType: TextInputType.emailAddress,
                     decoration: InputDecoration(
                         hintText: 'E-mail',
                         prefixIcon: const Icon(
@@ -206,10 +207,7 @@ class RegisterPage extends StatelessWidget {
           GestureDetector(
             onTap: () {
               AuthController.instance.register(
-                  nameController.text.trim(),
-                  surnameController.text.trim(),
-                  emailController.text.trim(),
-                  passwordController.text.trim());
+                  emailController.text.trim(), passwordController.text.trim());
             },
             child: Container(
               width: w * 0.5,
