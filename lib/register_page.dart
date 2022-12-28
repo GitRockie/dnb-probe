@@ -5,15 +5,14 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class RegisterPage extends StatelessWidget {
-  var emailController = TextEditingController();
-  var passwordController = TextEditingController();
+  final nameController = TextEditingController();
+  final surnameController = TextEditingController();
+  final emailController = TextEditingController();
+  final passwordController = TextEditingController();
   RegisterPage({super.key});
 
   @override
   Widget build(BuildContext context) {
-    //var nameController = TextEditingController();
-    //var surnameController = TextEditingController();
-
     double w = MediaQuery.of(context).size.width;
     double h = MediaQuery.of(context).size.height;
     return Scaffold(
@@ -48,7 +47,7 @@ class RegisterPage extends StatelessWidget {
                 const SizedBox(
                   height: 40,
                 ),
-                /* Container(
+                Container(
                   decoration: BoxDecoration(
                       color: Colors.white,
                       borderRadius: BorderRadius.circular(30),
@@ -112,7 +111,7 @@ class RegisterPage extends StatelessWidget {
                         border: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(30))),
                   ),
-                ),*/
+                ),
                 const SizedBox(
                   height: 20,
                 ),
@@ -207,7 +206,10 @@ class RegisterPage extends StatelessWidget {
           GestureDetector(
             onTap: () {
               AuthController.instance.register(
-                  emailController.text.trim(), passwordController.text.trim());
+                  nameController.text.trim(),
+                  surnameController.text.trim(),
+                  emailController.text.trim(),
+                  passwordController.text.trim());
             },
             child: Container(
               width: w * 0.5,
@@ -244,7 +246,7 @@ class RegisterPage extends StatelessWidget {
                       fontSize: 16,
                     ),
                     recognizer: TapGestureRecognizer()
-                      ..onTap = () => Get.to(() => const LoginPage()))
+                      ..onTap = () => Get.to(() => LoginPage()))
               ])),
         ]),
       ),

@@ -1,10 +1,13 @@
+import 'package:auth_app_flutter/auth_controller.dart';
 import 'package:auth_app_flutter/register_page.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class LoginPage extends StatelessWidget {
-  const LoginPage({super.key});
+  final emailController = TextEditingController();
+  final passwordController = TextEditingController();
+  LoginPage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -53,6 +56,8 @@ class LoginPage extends StatelessWidget {
                             color: Colors.grey.withOpacity(0.2))
                       ]),
                   child: TextField(
+                    controller: emailController,
+                    keyboardType: TextInputType.emailAddress,
                     decoration: InputDecoration(
                         hintText: 'E-mail',
                         prefixIcon: const Icon(
@@ -86,6 +91,8 @@ class LoginPage extends StatelessWidget {
                             color: Colors.grey.withOpacity(0.2))
                       ]),
                   child: TextField(
+                    controller: passwordController,
+                    obscureText: true,
                     decoration: InputDecoration(
                         hintText: 'Contraseña',
                         prefixIcon: const Icon(
@@ -124,20 +131,27 @@ class LoginPage extends StatelessWidget {
           const SizedBox(
             height: 40,
           ),
-          Container(
-            width: w * 0.5,
-            height: h * 0.08,
-            decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(30),
-                image: const DecorationImage(
-                    image: AssetImage('img/loginbtn.png'), fit: BoxFit.cover)),
-            child: const Center(
-              child: Text(
-                'Iniciar',
-                style: TextStyle(
-                    fontSize: 28,
-                    fontWeight: FontWeight.bold,
-                    color: Colors.white),
+          GestureDetector(
+            onTap: () {
+              AuthController.instance.login(
+                  emailController.text.trim(), passwordController.text.trim());
+            },
+            child: Container(
+              width: w * 0.5,
+              height: h * 0.08,
+              decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(30),
+                  image: const DecorationImage(
+                      image: AssetImage('img/loginbtn.png'),
+                      fit: BoxFit.cover)),
+              child: const Center(
+                child: Text(
+                  'Iniciar',
+                  style: TextStyle(
+                      fontSize: 28,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.white),
+                ),
               ),
             ),
           ),

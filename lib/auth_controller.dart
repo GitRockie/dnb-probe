@@ -25,14 +25,18 @@ class AuthController extends GetxController {
   _initialScreen(User? user) {
     if (user == null) {
       //print('login page redirected');
-      Get.offAll(() => const LoginPage());
+      Get.offAll(() => LoginPage());
     } else {
-      Get.offAll(() => const HomePage());
+      Get.offAll(() => HomePage(
+            email: user.email!,
+            name: '',
+            surname: '',
+          ));
     }
   }
 
   //Register function create
-  void register(String email, password) async {
+  void register(String name, surname, email, password) async {
     try {
       await auth.createUserWithEmailAndPassword(
           email: email, password: password);
@@ -49,5 +53,28 @@ class AuthController extends GetxController {
             style: const TextStyle(color: Colors.white),
           ));
     }
+  }
+
+  //Login method create
+  void login(String email, password) async {
+    try {
+      await auth.signInWithEmailAndPassword(email: email, password: password);
+    } catch (e) {
+      Get.snackbar('About Login', 'Login message',
+          backgroundColor: Colors.redAccent,
+          snackPosition: SnackPosition.BOTTOM,
+          titleText: const Text(
+            'Login falló.',
+            style: TextStyle(color: Colors.white),
+          ),
+          messageText: Text(
+            e.toString(),
+            style: const TextStyle(color: Colors.white),
+          ));
+    }
+  }
+
+  void logout() async {
+    await auth.signOut();
   }
 }

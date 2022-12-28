@@ -1,7 +1,19 @@
+// ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
 
+import 'package:auth_app_flutter/auth_controller.dart';
+
 class HomePage extends StatelessWidget {
-  const HomePage({super.key});
+  String email;
+  String name;
+  String surname;
+
+  HomePage({
+    Key? key,
+    required this.email,
+    required this.name,
+    required this.surname,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -47,7 +59,7 @@ class HomePage extends StatelessWidget {
                       color: Colors.black54),
                 ),
                 Text(
-                  'a@a.com',
+                  email,
                   style: TextStyle(fontSize: 16, color: Colors.grey[500]),
                 ),
               ],
@@ -96,20 +108,26 @@ class HomePage extends StatelessWidget {
           SizedBox(
             height: w * 0.08,
           ),
-          Container(
-            width: w * 0.5,
-            height: h * 0.08,
-            decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(30),
-                image: const DecorationImage(
-                    image: AssetImage('img/loginbtn.png'), fit: BoxFit.cover)),
-            child: const Center(
-              child: Text(
-                'Cerrar sessión',
-                style: TextStyle(
-                    fontSize: 24,
-                    fontWeight: FontWeight.bold,
-                    color: Colors.white),
+          GestureDetector(
+            onTap: () {
+              AuthController.instance.logout();
+            },
+            child: Container(
+              width: w * 0.5,
+              height: h * 0.08,
+              decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(30),
+                  image: const DecorationImage(
+                      image: AssetImage('img/loginbtn.png'),
+                      fit: BoxFit.cover)),
+              child: const Center(
+                child: Text(
+                  'Cerrar sessión',
+                  style: TextStyle(
+                      fontSize: 24,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.white),
+                ),
               ),
             ),
           ),
