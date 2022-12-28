@@ -1,5 +1,5 @@
 import 'package:auth_app_flutter/auth_controller.dart';
-import 'package:auth_app_flutter/home_page.dart';
+
 import 'package:auth_app_flutter/splash_screen.dart';
 import 'package:firebase_core/firebase_core.dart';
 
