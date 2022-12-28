@@ -1,7 +1,7 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
 
-import 'package:auth_app_flutter/auth_controller.dart';
+import 'package:auth_app_flutter/controllers/auth_controller.dart';
 
 class HomePage extends StatelessWidget {
   String email;

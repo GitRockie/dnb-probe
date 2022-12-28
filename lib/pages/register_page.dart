@@ -1,13 +1,16 @@
-import 'package:auth_app_flutter/auth_controller.dart';
-import 'package:auth_app_flutter/register_page.dart';
+import 'package:auth_app_flutter/controllers/auth_controller.dart';
+import 'package:auth_app_flutter/pages/login_page.dart';
+
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-class LoginPage extends StatelessWidget {
+class RegisterPage extends StatelessWidget {
+  final nameController = TextEditingController();
+  final surnameController = TextEditingController();
   final emailController = TextEditingController();
   final passwordController = TextEditingController();
-  LoginPage({super.key});
+  RegisterPage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -22,7 +25,19 @@ class LoginPage extends StatelessWidget {
             height: h * 0.3,
             decoration: const BoxDecoration(
                 image: DecorationImage(
-                    image: AssetImage('img/loginimg.png'), fit: BoxFit.cover)),
+                    image: AssetImage('img/signup.png'), fit: BoxFit.cover)),
+            child: Column(
+              children: [
+                SizedBox(
+                  height: h * 0.15,
+                ),
+                const CircleAvatar(
+                  backgroundColor: Colors.white70,
+                  radius: 50,
+                  backgroundImage: AssetImage('img/profile1.png'),
+                )
+              ],
+            ),
           ),
           Container(
             margin: const EdgeInsets.only(left: 20, right: 20),
@@ -31,18 +46,75 @@ class LoginPage extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 const SizedBox(
-                  height: 20,
+                  height: 40,
                 ),
-                const Text(
-                  '¡Hola!',
-                  style: TextStyle(fontSize: 40, fontWeight: FontWeight.bold),
-                ),
-                const Text(
-                  'Inicia sesión en tu cuenta',
-                  style: TextStyle(fontSize: 18, color: Colors.grey),
+                Container(
+                  decoration: BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: BorderRadius.circular(30),
+                      boxShadow: [
+                        BoxShadow(
+                            blurRadius: 10,
+                            spreadRadius: 7,
+                            offset: const Offset(1, 1),
+                            color: Colors.grey.withOpacity(0.2))
+                      ]),
+                  child: TextField(
+                    controller: nameController,
+                    decoration: InputDecoration(
+                        hintText: 'Nombre',
+                        prefixIcon: const Icon(
+                          Icons.create_outlined,
+                          color: Colors.deepOrangeAccent,
+                        ),
+                        focusedBorder: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(30),
+                            borderSide: const BorderSide(
+                                color: Colors.white, width: 1.0)),
+                        enabledBorder: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(30),
+                            borderSide: const BorderSide(
+                                color: Colors.white, width: 1.0)),
+                        border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(30))),
+                  ),
                 ),
                 const SizedBox(
-                  height: 50,
+                  height: 20,
+                ),
+                Container(
+                  decoration: BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: BorderRadius.circular(30),
+                      boxShadow: [
+                        BoxShadow(
+                            blurRadius: 10,
+                            spreadRadius: 7,
+                            offset: const Offset(1, 1),
+                            color: Colors.grey.withOpacity(0.2))
+                      ]),
+                  child: TextField(
+                    controller: surnameController,
+                    decoration: InputDecoration(
+                        hintText: 'Apellidos',
+                        prefixIcon: const Icon(
+                          Icons.create_outlined,
+                          color: Colors.deepOrangeAccent,
+                        ),
+                        focusedBorder: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(30),
+                            borderSide: const BorderSide(
+                                color: Colors.white, width: 1.0)),
+                        enabledBorder: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(30),
+                            borderSide: const BorderSide(
+                                color: Colors.white, width: 1.0)),
+                        border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(30))),
+                  ),
+                ),
+                const SizedBox(
+                  height: 20,
                 ),
                 Container(
                   decoration: BoxDecoration(
@@ -61,7 +133,7 @@ class LoginPage extends StatelessWidget {
                     decoration: InputDecoration(
                         hintText: 'E-mail',
                         prefixIcon: const Icon(
-                          Icons.mail_outlined,
+                          Icons.email_outlined,
                           color: Colors.deepOrangeAccent,
                         ),
                         focusedBorder: OutlineInputBorder(
@@ -114,27 +186,31 @@ class LoginPage extends StatelessWidget {
                 const SizedBox(
                   height: 20,
                 ),
-                Row(
+                /*Row(
                   children: [
                     Expanded(
                       child: Container(),
                     ),
                     const Text(
                       '¿Olvidaste tu contraseña?',
-                      style: TextStyle(fontSize: 18, color: Colors.grey),
+                      style: TextStyle(fontSize: 20, color: Colors.grey),
                     ),
                   ],
                 ),
+              */
               ],
             ),
           ),
           const SizedBox(
-            height: 40,
+            height: 30,
           ),
           GestureDetector(
             onTap: () {
-              AuthController.instance.login(
-                  emailController.text.trim(), passwordController.text.trim());
+              AuthController.instance.register(
+                  nameController.text.trim(),
+                  surnameController.text.trim(),
+                  emailController.text.trim(),
+                  passwordController.text.trim());
             },
             child: Container(
               width: w * 0.5,
@@ -146,33 +222,33 @@ class LoginPage extends StatelessWidget {
                       fit: BoxFit.cover)),
               child: const Center(
                 child: Text(
-                  'Iniciar',
+                  'Inscribirse',
                   style: TextStyle(
-                      fontSize: 28,
+                      fontSize: 27,
                       fontWeight: FontWeight.bold,
                       color: Colors.white),
                 ),
               ),
             ),
           ),
-          SizedBox(
-            height: w * 0.04,
+          const SizedBox(
+            height: 5,
           ),
           RichText(
               text: TextSpan(
-                  text: '¿Aún no tienes una cuenta?',
+                  text: '¿Ya tienes una cuenta?',
                   style: TextStyle(color: Colors.grey[500], fontSize: 16),
                   children: [
                 TextSpan(
-                    text: ' Crear',
+                    text: ' Iniciar sesión',
                     style: const TextStyle(
                       color: Colors.black54,
                       fontWeight: FontWeight.bold,
                       fontSize: 16,
                     ),
                     recognizer: TapGestureRecognizer()
-                      ..onTap = () => Get.to(() => RegisterPage()))
-              ]))
+                      ..onTap = () => Get.to(() => LoginPage()))
+              ])),
         ]),
       ),
     );
