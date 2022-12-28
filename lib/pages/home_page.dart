@@ -28,7 +28,8 @@ class HomePage extends StatelessWidget {
             height: h * 0.3,
             decoration: const BoxDecoration(
                 image: DecorationImage(
-                    image: AssetImage('img/signup.png'), fit: BoxFit.cover)),
+                    image: AssetImage('assets/images/signup.png'),
+                    fit: BoxFit.cover)),
             child: Column(
               children: [
                 SizedBox(
@@ -37,7 +38,7 @@ class HomePage extends StatelessWidget {
                 const CircleAvatar(
                   backgroundColor: Colors.white70,
                   radius: 50,
-                  backgroundImage: AssetImage('img/profile1.png'),
+                  backgroundImage: AssetImage('assets/images/profile1.png'),
                 )
               ],
             ),
@@ -74,7 +75,8 @@ class HomePage extends StatelessWidget {
             decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(30),
                 image: const DecorationImage(
-                    image: AssetImage('img/loginbtn.png'), fit: BoxFit.cover)),
+                    image: AssetImage('assets/images/loginbtn.png'),
+                    fit: BoxFit.cover)),
             child: const Center(
               child: Text(
                 'Subir archivo',
@@ -94,7 +96,8 @@ class HomePage extends StatelessWidget {
             decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(30),
                 image: const DecorationImage(
-                    image: AssetImage('img/loginbtn.png'), fit: BoxFit.cover)),
+                    image: AssetImage('assets/images/loginbtn.png'),
+                    fit: BoxFit.cover)),
             child: const Center(
               child: Text(
                 'Graficar',
@@ -118,7 +121,7 @@ class HomePage extends StatelessWidget {
               decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(30),
                   image: const DecorationImage(
-                      image: AssetImage('img/loginbtn.png'),
+                      image: AssetImage('assets/images/loginbtn.png'),
                       fit: BoxFit.cover)),
               child: const Center(
                 child: Text(

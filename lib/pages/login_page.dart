@@ -23,7 +23,8 @@ class LoginPage extends StatelessWidget {
             height: h * 0.3,
             decoration: const BoxDecoration(
                 image: DecorationImage(
-                    image: AssetImage('img/loginimg.png'), fit: BoxFit.cover)),
+                    image: AssetImage('assets/images/loginimg.png'),
+                    fit: BoxFit.cover)),
           ),
           Container(
             margin: const EdgeInsets.only(left: 20, right: 20),
@@ -143,7 +144,7 @@ class LoginPage extends StatelessWidget {
               decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(30),
                   image: const DecorationImage(
-                      image: AssetImage('img/loginbtn.png'),
+                      image: AssetImage('assets/images/loginbtn.png'),
                       fit: BoxFit.cover)),
               child: const Center(
                 child: Text(
