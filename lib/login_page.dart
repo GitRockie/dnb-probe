@@ -157,7 +157,7 @@ class LoginPage extends StatelessWidget {
                       fontSize: 16,
                     ),
                     recognizer: TapGestureRecognizer()
-                      ..onTap = () => Get.to(() => const RegisterPage()))
+                      ..onTap = () => Get.to(() => RegisterPage()))
               ]))
         ]),
       ),

@@ -5,14 +5,14 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class RegisterPage extends StatelessWidget {
-  const RegisterPage({super.key});
+  var emailController = TextEditingController();
+  var passwordController = TextEditingController();
+  RegisterPage({super.key});
 
   @override
   Widget build(BuildContext context) {
     //var nameController = TextEditingController();
     //var surnameController = TextEditingController();
-    var emailController = TextEditingController();
-    var passwordController = TextEditingController();
 
     double w = MediaQuery.of(context).size.width;
     double h = MediaQuery.of(context).size.height;
