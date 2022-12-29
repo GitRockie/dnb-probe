@@ -1,7 +1,11 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
+import 'dart:convert';
+
+import 'package:auth_app_flutter/controllers/data_paper/data_uploader.dart';
 import 'package:flutter/material.dart';
 
 import 'package:auth_app_flutter/controllers/auth_controller.dart';
+import 'package:get/get.dart';
 
 class HomePage extends StatelessWidget {
   String email;
@@ -17,6 +21,7 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    DataUploader controller = Get.put(DataUploader());
     double w = MediaQuery.of(context).size.width;
     double h = MediaQuery.of(context).size.height;
     return Scaffold(
@@ -69,21 +74,26 @@ class HomePage extends StatelessWidget {
           const SizedBox(
             height: 100,
           ),
-          Container(
-            width: w * 0.5,
-            height: h * 0.08,
-            decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(30),
-                image: const DecorationImage(
-                    image: AssetImage('assets/images/loginbtn.png'),
-                    fit: BoxFit.cover)),
-            child: const Center(
-              child: Text(
-                'Subir archivo',
-                style: TextStyle(
-                    fontSize: 24,
-                    fontWeight: FontWeight.bold,
-                    color: Colors.white),
+          GestureDetector(
+            onTap: () {
+              controller.uploadData();
+            },
+            child: Container(
+              width: w * 0.5,
+              height: h * 0.08,
+              decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(30),
+                  image: const DecorationImage(
+                      image: AssetImage('assets/images/loginbtn.png'),
+                      fit: BoxFit.cover)),
+              child: const Center(
+                child: Text(
+                  'Subir archivo',
+                  style: TextStyle(
+                      fontSize: 24,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.white),
+                ),
               ),
             ),
           ),
