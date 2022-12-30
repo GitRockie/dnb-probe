@@ -2,6 +2,7 @@
 import 'dart:convert';
 
 import 'package:auth_app_flutter/controllers/data_paper/data_uploader.dart';
+import 'package:auth_app_flutter/pages/chart_page.dart';
 import 'package:flutter/material.dart';
 
 import 'package:auth_app_flutter/controllers/auth_controller.dart';
@@ -100,21 +101,24 @@ class HomePage extends StatelessWidget {
           SizedBox(
             height: w * 0.08,
           ),
-          Container(
-            width: w * 0.5,
-            height: h * 0.08,
-            decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(30),
-                image: const DecorationImage(
-                    image: AssetImage('assets/images/loginbtn.png'),
-                    fit: BoxFit.cover)),
-            child: const Center(
-              child: Text(
-                'Graficar',
-                style: TextStyle(
-                    fontSize: 24,
-                    fontWeight: FontWeight.bold,
-                    color: Colors.white),
+          GestureDetector(
+            onTap: () => Get.to(() => ChartPage()),
+            child: Container(
+              width: w * 0.5,
+              height: h * 0.08,
+              decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(30),
+                  image: const DecorationImage(
+                      image: AssetImage('assets/images/loginbtn.png'),
+                      fit: BoxFit.cover)),
+              child: const Center(
+                child: Text(
+                  'Graficar',
+                  style: TextStyle(
+                      fontSize: 24,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.white),
+                ),
               ),
             ),
           ),
